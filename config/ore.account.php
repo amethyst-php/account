@@ -24,7 +24,7 @@ return [
         */
         'router' => [
             'prefix'      => '/account',
-            'middleware' => ['auth:api']
+            'middleware'  => ['auth:api'],
         ],
     ],
 ];
