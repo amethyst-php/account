@@ -3,7 +3,6 @@
 namespace Railken\LaraOre;
 
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Railken\LaraOre\Api\Support\Router;
 

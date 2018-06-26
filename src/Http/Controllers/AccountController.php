@@ -12,7 +12,7 @@ class AccountController extends Controller
      * @var \Railken\LaraOre\User\UserManager
      */
     protected $manager;
- 
+
     /**
      * Construct.
      */
@@ -55,14 +55,14 @@ class AccountController extends Controller
     public function password(Request $request)
     {
         $result = $this->manager->changePassword($this->getUser(), $request->input('password_old'), $request->input('password'));
- 
+
         if (!$result->ok()) {
             return $this->error(['errors' => $result->getSimpleErrors()]);
         }
- 
+
         return $this->success();
     }
- 
+
     /**
      * Change user email.
      *
@@ -73,14 +73,14 @@ class AccountController extends Controller
     public function email(Request $request)
     {
         $result = $this->manager->requestChangeEmail($this->getUser(), $request->input('email'));
- 
+
         if (!$result->ok()) {
             return $this->error(['errors' => $result->getSimpleErrors()]);
         }
- 
+
         return $this->success();
     }
- 
+
     /**
      * Delete account.
      *
@@ -91,14 +91,14 @@ class AccountController extends Controller
     public function delete(Request $request)
     {
         $result = $this->manager->delete($this->getUser(), $request->input('password', ''));
- 
+
         if (!$result->ok()) {
             return $this->error(['errors' => $result->getSimpleErrors()]);
         }
- 
+
         return $this->success();
     }
- 
+
     /**
      * Change user username.
      *
@@ -109,11 +109,11 @@ class AccountController extends Controller
     public function username(Request $request)
     {
         $result = $this->manager->update($this->getUser(), new \Railken\Bag(['name' => $request->input('name')]));
- 
+
         if (!$result->ok()) {
             return $this->error(['errors' => $result->getSimpleErrors()]);
         }
- 
+
         return $this->success();
     }
 }
