@@ -2,6 +2,7 @@
 
 namespace Railken\LaraOre;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Railken\LaraOre\Api\Support\Router;
@@ -10,8 +11,6 @@ class AccountServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -23,8 +22,6 @@ class AccountServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register()
     {
@@ -40,8 +37,10 @@ class AccountServiceProvider extends ServiceProvider
      */
     public function loadRoutes()
     {
-        Router::group(Config::get('ore.account.http.router'), function ($router) {
-            $controller = Config::get('ore.account.http.controller');
+        $config = Config::get('ore.account.http.user');
+
+        Router::group('user', Arr::get($config, 'router'), function ($router) use ($config) {
+            $controller = Arr::get($config, 'controller');
             $router->get('/', ['uses' => $controller.'@index']);
         });
     }

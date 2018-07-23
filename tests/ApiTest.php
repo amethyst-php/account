@@ -16,17 +16,15 @@ class ApiTest extends BaseTest
      */
     public function getBaseUrl()
     {
-        return Config::get('ore.api.router.prefix').Config::get('ore.account.http.router.prefix');
+        return Config::get('ore.api.router.prefix').Config::get('ore.account.http.user.router.prefix');
     }
 
     /**
      * Test common requests.
-     *
-     * @return void
      */
     public function testAccount()
     {
-        $response = $this->post(Config::get('ore.api.router.prefix').Config::get('ore.auth.http.router.prefix').'/sign-in', [
+        $response = $this->post(Config::get('ore.api.router.prefix').Config::get('ore.auth.http.common.router.prefix'), [
             'username' => 'admin@admin.com',
             'password' => 'vercingetorige',
         ]);

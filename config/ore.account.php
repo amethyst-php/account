@@ -1,30 +1,22 @@
 <?php
 
 return [
-
+    /*
+    |--------------------------------------------------------------------------
+    | Http configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the routes
+    |
+    */
     'http' => [
-
-        /*
-        |--------------------------------------------------------------------------
-        | Class name controller
-        |--------------------------------------------------------------------------
-        |
-        | Here you may define the controller that will handle all the requests
-        |
-        */
-        'controller' => Railken\LaraOre\Http\Controllers\AccountController::class,
-
-        /*
-        |--------------------------------------------------------------------------
-        | Router Options
-        |--------------------------------------------------------------------------
-        |
-        | Here you may define all the options that will be used by the route group
-        |
-        */
-        'router' => [
-            'prefix'      => '/account',
-            'middleware'  => ['auth:api'],
+        'user' => [
+            'enabled'    => true,
+            'controller' => Railken\LaraOre\Http\Controllers\AccountController::class,
+            'router'     => [
+                'prefix'      => '/account',
+                'middleware'  => ['auth:api'],
+            ],
         ],
     ],
 ];
