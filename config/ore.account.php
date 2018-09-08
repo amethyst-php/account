@@ -10,7 +10,7 @@ return [
     |
     */
     'http' => [
-        'user' => [
+        'app' => [
             'enabled'    => true,
             'controller' => Railken\LaraOre\Http\Controllers\AccountController::class,
             'router'     => [

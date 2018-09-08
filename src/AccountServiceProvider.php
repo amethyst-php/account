@@ -28,7 +28,7 @@ class AccountServiceProvider extends ServiceProvider
         $this->app->register(\Laravel\Passport\PassportServiceProvider::class);
         $this->app->register(\Railken\LaraOre\ApiServiceProvider::class);
         $this->app->register(\Railken\LaraOre\UserServiceProvider::class);
-        $this->app->register(\Railken\LaraOre\AuthServiceProvider::class);
+        $this->app->register(\Railken\LaraOre\AuthenticationServiceProvider::class);
         $this->mergeConfigFrom(__DIR__.'/../config/ore.account.php', 'ore.account');
     }
 
@@ -37,9 +37,9 @@ class AccountServiceProvider extends ServiceProvider
      */
     public function loadRoutes()
     {
-        $config = Config::get('ore.account.http.user');
+        $config = Config::get('ore.account.http.app');
 
-        Router::group('user', Arr::get($config, 'router'), function ($router) use ($config) {
+        Router::group('app', Arr::get($config, 'router'), function ($router) use ($config) {
             $controller = Arr::get($config, 'controller');
             $router->get('/', ['uses' => $controller.'@index']);
         });
