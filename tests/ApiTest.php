@@ -1,40 +1,27 @@
 <?php
 
-namespace Railken\LaraOre\Account\Tests;
+namespace Railken\Amethyst\Tests;
 
 use Illuminate\Support\Facades\Config;
-use Railken\LaraOre\Support\Testing\ApiTestableTrait;
 
 class ApiTest extends BaseTest
 {
-    use ApiTestableTrait;
-
-    /**
-     * Retrieve basic url.
-     *
-     * @return string
-     */
-    public function getBaseUrl()
-    {
-        return Config::get('ore.api.http.app.router.prefix').Config::get('ore.account.http.app.router.prefix');
-    }
-
     /**
      * Test common requests.
      */
     public function testAccount()
     {
-        $response = $this->post(Config::get('ore.api.http.app.router.prefix').Config::get('ore.auth.http.app.router.prefix'), [
+        $response = $this->post(Config::get('amethyst.api.http.app.router.prefix').Config::get('amethyst.authentication.http.app.authentication.router.prefix'), [
             'username' => 'admin@admin.com',
             'password' => 'vercingetorige',
         ]);
-        $this->assertOrPrint($response, 200);
+        $response->assertStatus(200);
 
         $access_token = json_decode($response->getContent())->data->access_token;
         $this->withHeaders(['Authorization' => 'Bearer '.$access_token]);
 
-        $response = $this->get($this->getBaseUrl());
-        $this->assertOrPrint($response, 200);
+        $response = $this->get(Config::get('amethyst.api.http.app.router.prefix').Config::get('amethyst.account.http.app.account.router.prefix'));
+        $response->assertStatus(200);
 
         return $response;
     }

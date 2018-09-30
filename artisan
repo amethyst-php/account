@@ -17,10 +17,10 @@ define('LARAVEL_START', microtime(true));
 
 require __DIR__.'/vendor/autoload.php';
 
-class AppTest extends \Railken\LaraOre\Account\Tests\BaseTest
+class AppTest extends \Railken\Amethyst\Tests\BaseTest
 {
     /**
-     * Retrieve app
+     * Retrieve app.
      */
     public function getApp()
     {
@@ -32,6 +32,7 @@ $t = new AppTest();
 $t->setUp();
 
 $app = $t->getApp();
+
 
 /*
 |--------------------------------------------------------------------------

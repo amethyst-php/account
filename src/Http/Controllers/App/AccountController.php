@@ -1,15 +1,15 @@
 <?php
 
-namespace Railken\LaraOre\Http\Controllers;
+namespace Railken\Amethyst\Http\Controllers\App;
 
 use Illuminate\Http\Request;
-use Railken\LaraOre\Api\Http\Controllers\Controller;
-use Railken\LaraOre\User\UserManager;
+use Railken\Amethyst\Api\Http\Controllers\Controller;
+use Railken\Amethyst\Managers\UserManager;
 
 class AccountController extends Controller
 {
     /**
-     * @var \Railken\LaraOre\User\UserManager
+     * @var \Railken\Amethyst\Managers\UserManager
      */
     protected $manager;
 

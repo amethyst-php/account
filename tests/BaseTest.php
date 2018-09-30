@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\LaraOre\Account\Tests;
+namespace Railken\Amethyst\Tests;
 
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
@@ -16,15 +16,13 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
 
         $this->artisan('migrate:fresh');
         $this->artisan('passport:install');
-        // $this->artisan('vendor:publish', ['--provider' => 'Railken\LaraOre\AuthServiceProvider', '--force' => true]);
-        $this->artisan('lara-ore:user:install');
-        $this->artisan('migrate');
+        $this->artisan('amethyst:user:install');
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            \Railken\LaraOre\AccountServiceProvider::class,
+            \Railken\Amethyst\Providers\AccountServiceProvider::class,
         ];
     }
 }

@@ -11,11 +11,13 @@ return [
     */
     'http' => [
         'app' => [
-            'enabled'    => true,
-            'controller' => Railken\LaraOre\Http\Controllers\AccountController::class,
-            'router'     => [
-                'prefix'      => '/account',
-                'middleware'  => ['auth:api'],
+            'account' => [
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\App\AccountController::class,
+                'router'     => [
+                    'prefix'      => '/account',
+                    'middleware'  => ['auth:api'],
+                ],
             ],
         ],
     ],
