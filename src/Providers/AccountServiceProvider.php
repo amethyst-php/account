@@ -31,7 +31,7 @@ class AccountServiceProvider extends CommonServiceProvider
 
         Router::group('app', Arr::get($config, 'router'), function ($router) use ($config) {
             $controller = Arr::get($config, 'controller');
-            $router->get('/', ['uses' => $controller.'@index']);
+            $router->get('/', ['as' => 'show', 'uses' => $controller.'@index']);
         });
     }
 }

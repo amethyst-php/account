@@ -16,6 +16,7 @@ return [
                 'controller' => Railken\Amethyst\Http\Controllers\App\AccountController::class,
                 'router'     => [
                     'prefix'      => '/account',
+                    'as'          => 'account.',
                     'middleware'  => ['auth:api'],
                 ],
             ],
