@@ -2,8 +2,6 @@
 
 namespace Railken\Amethyst\Tests;
 
-use Illuminate\Support\Facades\Config;
-
 class ApiTest extends BaseTest
 {
     /**
@@ -11,7 +9,7 @@ class ApiTest extends BaseTest
      */
     public function testAccount()
     {
-        $response = $this->post(Config::get('amethyst.api.http.app.router.prefix').Config::get('amethyst.authentication.http.app.authentication.router.prefix'), [
+        $response = $this->post(route('app.auth.basic'), [
             'username' => 'admin@admin.com',
             'password' => 'vercingetorige',
         ]);
@@ -20,7 +18,7 @@ class ApiTest extends BaseTest
         $access_token = json_decode($response->getContent())->data->access_token;
         $this->withHeaders(['Authorization' => 'Bearer '.$access_token]);
 
-        $response = $this->get(Config::get('amethyst.api.http.app.router.prefix').Config::get('amethyst.account.http.app.account.router.prefix'));
+        $response = $this->get(route('app.account.show'));
         $response->assertStatus(200);
 
         return $response;
