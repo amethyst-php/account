@@ -13,7 +13,7 @@ class ApiTest extends BaseTest
             'username' => 'admin@admin.com',
             'password' => 'vercingetorige',
         ]);
-        
+
         $response->assertStatus(200);
 
         $access_token = json_decode($response->getContent())->data->access_token;
