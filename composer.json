@@ -1,11 +1,11 @@
 {
-    "name": "railken/amethyst-account",
+    "name": "amethyst/account",
     "keywords": ["laravel", "amethyst", "amethyst-account", "account"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "railken/amethyst-common": "0.1.*",
-        "railken/amethyst-authentication": "0.1.*"
+        "amethyst/common": "0.1.*",
+        "amethyst/authentication": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.1",
@@ -13,18 +13,18 @@
     },
     "autoload": {
         "psr-4" : {
-            "Railken\\Amethyst\\" : "src/"
+            "Amethyst\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": { 
-            "Railken\\Amethyst\\Tests\\": "tests/" 
+            "Amethyst\\Tests\\": "tests/" 
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Railken\\Amethyst\\Providers\\AccountServiceProvider"
+                "Amethyst\\Providers\\AccountServiceProvider"
             ]
         }
     }

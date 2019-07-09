@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Tests;
+namespace Amethyst\Tests;
 
 class ApiTest extends BaseTest
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Railken\Amethyst\Http\Controllers\App;
+namespace Amethyst\Http\Controllers\App;
 
 use Illuminate\Http\Request;
-use Railken\Amethyst\Api\Http\Controllers\Controller;
-use Railken\Amethyst\Managers\UserManager;
+use Amethyst\Api\Http\Controllers\Controller;
+use Amethyst\Managers\UserManager;
 
 class AccountController extends Controller
 {
     /**
-     * @var \Railken\Amethyst\Managers\UserManager
+     * @var \Amethyst\Managers\UserManager
      */
     protected $manager;
 

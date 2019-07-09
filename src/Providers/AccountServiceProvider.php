@@ -1,11 +1,11 @@
 <?php
 
-namespace Railken\Amethyst\Providers;
+namespace Amethyst\Providers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Api\Support\Router;
-use Railken\Amethyst\Common\CommonServiceProvider;
+use Amethyst\Api\Support\Router;
+use Amethyst\Common\CommonServiceProvider;
 
 class AccountServiceProvider extends CommonServiceProvider
 {
@@ -15,9 +15,9 @@ class AccountServiceProvider extends CommonServiceProvider
     public function register()
     {
         $this->app->register(\Laravel\Passport\PassportServiceProvider::class);
-        $this->app->register(\Railken\Amethyst\Providers\ApiServiceProvider::class);
-        $this->app->register(\Railken\Amethyst\Providers\UserServiceProvider::class);
-        $this->app->register(\Railken\Amethyst\Providers\AuthenticationServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\ApiServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\UserServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\AuthenticationServiceProvider::class);
 
         parent::register();
     }
