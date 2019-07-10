@@ -2,9 +2,9 @@
 
 namespace Amethyst\Http\Controllers\App;
 
-use Illuminate\Http\Request;
 use Amethyst\Api\Http\Controllers\Controller;
 use Amethyst\Managers\UserManager;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
