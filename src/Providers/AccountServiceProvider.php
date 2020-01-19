@@ -15,7 +15,6 @@ class AccountServiceProvider extends CommonServiceProvider
     public function register()
     {
         $this->app->register(\Laravel\Passport\PassportServiceProvider::class);
-        $this->app->register(\Amethyst\Providers\ApiServiceProvider::class);
         $this->app->register(\Amethyst\Providers\UserServiceProvider::class);
         $this->app->register(\Amethyst\Providers\AuthenticationServiceProvider::class);
 
